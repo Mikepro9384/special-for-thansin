@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>A Romantic Surprise for Than Sin 🌸🤍 | By Min Depar Kyaw</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Inter, Padauk (Burmese), and Caveat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gradient-to-b from-[#220718] via-[#3b122b] to-[#1a0614] text-slate-100 font-burmese min-h-screen overflow-x-hidden relative selection:bg-rose-500 selection:text-white">
+
+  <!-- BACKGROUND PARTICLES CANVAS (Jasmine Petals & Soft Glowing Hearts 60FPS) -->
+  <canvas id="petalsCanvas" class="fixed inset-0 pointer-events-none z-0 w-full h-full"></canvas>
+
+  <!-- ========================================================
+       1. WELCOME SCREEN: SEALED SURPRISE ENVELOPE GATEWAY
+       ======================================================== -->
+  <div id="welcomeGate" class="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-b from-[#24061a] via-[#3a0a29] to-[#180412] px-4 transition-all duration-1000">
+    <div class="relative w-full max-w-md text-center p-4">
+      
+      <!-- Ambient Glow Behind Envelope -->
+      <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-72 h-72 bg-rose-500/25 rounded-full blur-3xl pointer-events-none animate-glowPulse"></div>
+
+      <!-- Sealed Envelope Graphic -->
+      <div id="envelopeContainer" class="relative mx-auto mb-6 w-64 sm:w-72 h-44 sm:h-48 bg-gradient-to-tr from-pink-950 via-rose-900 to-rose-950 rounded-2xl shadow-2xl border border-rose-400/30 flex items-center justify-center cursor-pointer transition-transform duration-300 hover:scale-105 active:scale-95" onclick="unlockSurprise()">
+        
+        <!-- Flap of envelope -->
+        <div class="absolute -top-0.5 inset-x-0 h-24 sm:h-28 bg-gradient-to-b from-rose-800 to-rose-900 rounded-t-2xl [clip-path:polygon(0_0,100%_0,50%_100%)] border-t border-rose-400/40 shadow-inner"></div>
+
+        <!-- Wax Seal Button with Wax Stamp Effect -->
+        <div class="relative z-10 w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-gradient-to-tr from-rose-600 via-rose-500 to-pink-500 shadow-xl shadow-rose-900/80 flex items-center justify-center ring-4 ring-rose-400/50 animate-heartBeat">
+          <svg class="w-8 h-8 text-white drop-shadow" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+
+        <!-- Envelope label -->
+        <div class="absolute bottom-3 text-[11px] sm:text-xs tracking-wider uppercase text-rose-300/80 font-mono">
+          For Than Sin • From Min Depar Kyaw
+        </div>
+      </div>
+
+      <span class="inline-block px-4 py-1 rounded-full bg-rose-500/20 text-rose-300 text-xs sm:text-sm tracking-wider border border-rose-500/30 mb-2.5">
+        A Special Surprise for Than Sin 🌸
+      </span>
+      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white drop-shadow mb-2">
+        Than Sin အတွက် သီးသန့်ပေးစာ 💌
+      </h1>
+      <p class="text-rose-200/85 text-xs sm:text-sm leading-relaxed mb-6 font-light max-w-sm mx-auto">
+        "ငါ့အတွက်ဆိုပြီး သီးသန့်ပေးတဲ့ အရာအားလုံးကို ငါသဘောကျတယ်" ဆိုလို့... နင် အကြိုက်ဆုံး သီချင်းလေးတွေနဲ့အတူ ဖန်တီးထားတဲ့ လျှို့ဝှက်လက်ဆောင်လေးပါဗျာ 🤍
+      </p>
+
+      <!-- Open Button -->
+      <button onclick="unlockSurprise()" class="w-full max-w-sm mx-auto py-3.5 px-6 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 text-white font-semibold text-sm sm:text-base shadow-xl shadow-rose-900/60 hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2 group">
+        <span>စာအိတ်လေးကို ဖွင့်ကြည့်ပါ ✨</span>
+        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </button>
+
+      <p class="mt-4 text-[11px] sm:text-xs text-rose-300/70 font-light flex items-center justify-center gap-1">
+        <span>🎧 ဖွင့်လိုက်တာနဲ့ နူးညံ့တဲ့ တေးသံသာလေး ပျံ့လွင့်လာပါလိမ့်မယ်</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       2. SWIPABLE 3-TRACK VINYL RECORD MUSIC PLAYER
+       (Fully optimized for PC Click & Mobile/Tablet Swipe)
+       ======================================================== -->
+  <header class="sticky top-2 sm:top-4 z-40 w-full max-w-xl mx-auto px-3 sm:px-4 pointer-events-none">
+    <div id="playerSwipeBox" class="glass-panel-dark rounded-3xl p-3 sm:p-4 shadow-2xl pointer-events-auto border border-rose-400/35 relative overflow-hidden transition-all duration-300">
+      
+      <!-- Top header bar with Swipe instructions & EQ visualizer -->
+      <div class="flex items-center justify-between text-[11px] sm:text-xs text-rose-200/80 mb-2 px-1">
+        <div class="flex items-center gap-1.5 font-medium">
+          <span class="w-2 h-2 rounded-full bg-rose-400 animate-ping"></span>
+          <span>Now Playing (Click ❮ ❯ or Swipe)</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <!-- Animated equalizer visualizer -->
+          <div id="eqVisualizer" class="hidden flex items-end gap-0.5 h-4">
+            <span class="w-1 bg-rose-400 rounded-full eq-bar-1"></span>
+            <span class="w-1 bg-pink-400 rounded-full eq-bar-2"></span>
+            <span class="w-1 bg-rose-300 rounded-full eq-bar-3"></span>
+          </div>
+          <span id="trackBadge" class="px-2.5 py-0.5 rounded-full bg-rose-500/30 text-rose-200 text-[10px] sm:text-[11px] font-mono">1 / 3</span>
+        </div>
+      </div>
+
+      <!-- Main Player Row: Vinyl + Tonearm + Info -->
+      <div class="flex items-center justify-between gap-3 sm:gap-4">
+        
+        <!-- Left: Vinyl Disk Container with Tonearm -->
+        <div class="relative w-18 h-18 sm:w-20 sm:h-20 shrink-0 flex items-center justify-center">
+          <!-- Spinning Vinyl Disk -->
+          <div id="vinylDisk" class="w-18 h-18 sm:w-20 sm:h-20 rounded-full bg-[#0a0508] border-2 border-[#381d2c] shadow-lg flex items-center justify-center relative overflow-hidden ring-1 ring-rose-400/40">
+            <div class="absolute inset-2 rounded-full border border-neutral-700/60 pointer-events-none"></div>
+            <div class="absolute inset-4 rounded-full border border-neutral-700/40 pointer-events-none"></div>
+            <div id="vinylLabel" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-tr from-rose-600 to-pink-500 flex items-center justify-center shadow-inner">
+              <span id="vinylIcon" class="text-[10px] sm:text-xs">🌸</span>
+            </div>
+          </div>
+
+          <!-- Realistic Tonearm -->
+          <div class="absolute -top-1 -right-1 w-8 h-12 pointer-events-none z-10 origin-top-right transition-transform duration-700 ease-out tonearm-idle" id="tonearm">
+            <div class="w-3 h-3 rounded-full bg-rose-300 shadow-md ml-auto"></div>
+            <div class="w-1 h-9 bg-gradient-to-b from-rose-200 to-rose-400 ml-auto mr-1 -mt-1 rounded"></div>
+            <div class="w-2.5 h-3 bg-rose-500 rounded-sm ml-auto mr-0.5"></div>
+          </div>
+        </div>
+
+        <!-- Center: Track Info (Changes smoothly on swipe) -->
+        <div class="min-w-0 flex-1">
+          <h3 id="songTitle" class="text-sm sm:text-base font-bold text-white truncate">
+            စပယ်ဖြူလေးနဲ့တွေ့တဲ့နောက်
+          </h3>
+          <p id="songArtist" class="text-xs sm:text-sm text-rose-300/80 truncate">
+            G Fatt
+          </p>
+          <div class="flex items-center gap-2 mt-1">
+            <span id="trackTag" class="text-[10px] sm:text-[11px] px-2 py-0.5 rounded-md bg-rose-500/20 text-rose-300 font-light truncate">
+              Than Sin's Favorite 🤍
+            </span>
+          </div>
+        </div>
+
+        <!-- Right: Action Buttons (Prev / Play / Next & Custom Upload) -->
+        <div class="flex flex-col items-center gap-1.5 shrink-0">
+          <div class="flex items-center gap-1.5">
+            <button onclick="prevSong()" title="Previous Song" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 active:scale-90 text-rose-200 flex items-center justify-center text-xs sm:text-sm transition">
+              ❮
+            </button>
+            <button id="playBtn" onclick="toggleMusic()" title="Play / Pause" class="w-10 h-10 rounded-full bg-gradient-to-r from-rose-500 to-pink-500 text-white flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition">
+              <svg id="playIcon" class="w-4 h-4 sm:w-5 sm:h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              <svg id="pauseIcon" class="w-4 h-4 sm:w-5 sm:h-5 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            </button>
+            <button onclick="nextSong()" title="Next Song" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 active:scale-90 text-rose-200 flex items-center justify-center text-xs sm:text-sm transition">
+              ❯
+            </button>
+          </div>
+
+          <!-- Dynamic Audio Upload Button for Current Track -->
+          <label title="ဖုန်း သို့မဟုတ် PC ထဲက MP3 ဖိုင်ထည့်ရန်" class="text-[10px] sm:text-[11px] text-rose-300/90 hover:text-white flex items-center gap-1 cursor-pointer py-0.5 px-2.5 rounded-full bg-white/10 active:scale-95 transition">
+            <input type="file" id="songFileInput" accept="audio/*" class="hidden" onchange="handleCustomAudioUpload(event)">
+            <span>📁 MP3 ထည့်ရန်</span>
+          </label>
+        </div>
+
+      </div>
+
+      <!-- Swipe indicator 3 dots -->
+      <div class="flex justify-center items-center gap-1.5 mt-2">
+        <span id="dot0" class="w-3.5 h-1.5 rounded-full bg-rose-400 transition-all duration-300"></span>
+        <span id="dot1" class="w-1.5 h-1.5 rounded-full bg-rose-400/40 transition-all duration-300"></span>
+        <span id="dot2" class="w-1.5 h-1.5 rounded-full bg-rose-400/40 transition-all duration-300"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- HTML5 Audio Element for Local MP3 Playback -->
+  <audio id="mainAudio" loop preload="auto"></audio>
+
+  <!-- ========================================================
+       MAIN CONTENT (Responsive for PC, Tablet, iPad & Mobile)
+       ======================================================== -->
+  <main class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-28 space-y-10 sm:space-y-14">
+
+    <!-- HERO INTRODUCTION -->
+    <section class="text-center pt-2 max-w-2xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-500/20 text-rose-300 text-xs sm:text-sm border border-rose-500/30 mb-3 animate-float">
+        <span>To: Than Sin 🌸</span>
+        <span>•</span>
+        <span>From: Min Depar Kyaw 🤍</span>
+      </div>
+
+      <h2 class="text-2xl sm:text-4xl lg:text-5xl font-bold text-white leading-snug sm:leading-tight mb-3 sm:mb-4">
+        Than Sin နဲ့ တွေ့ဆုံခွင့်ရတဲ့ <br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-pink-300 to-rose-200">
+          အခိုက်အတန့်တိုင်းဟာ အဖိုးတန်တယ်
+        </span>
+      </h2>
+
+      <p class="text-xs sm:text-base text-rose-200/85 leading-relaxed max-w-md sm:max-w-xl mx-auto font-light">
+        လူတွေ အများကြီးကြားထဲမှာ Than Sin က အထင်းဆုံးနဲ့ အလှဆုံး ဖြစ်နေခဲ့သလို... ငါ့ကမ္ဘာထဲမှာလည်း Than Sin က တစ်ယောက်တည်းသော အထူးခြားဆုံးပါပဲ 🤍
+      </p>
+    </section>
+
+    <!-- ========================================================
+         3. DEDICATED INTERACTIVE STICKER SHOWCASE CORNER
+         ======================================================== -->
+    <section class="glass-panel-dark rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden border border-rose-400/50 max-w-2xl mx-auto">
+      
+      <!-- Glowing Background Aura -->
+      <div class="absolute -top-12 -left-12 w-48 h-48 bg-rose-500/20 rounded-full blur-3xl pointer-events-none animate-glowPulse"></div>
+      <div class="absolute -bottom-10 -right-10 w-44 h-44 bg-pink-500/20 rounded-full blur-3xl pointer-events-none animate-glowPulse"></div>
+
+      <!-- Section Title Header -->
+      <div class="flex items-center justify-between mb-4 pb-3 border-b border-rose-500/30">
+        <div>
+          <div class="inline-flex items-center gap-1 text-[10px] sm:text-xs text-pink-300 font-mono tracking-wider uppercase bg-pink-500/20 px-2 py-0.5 rounded-full border border-pink-400/30 mb-1">
+            <span>Special Interactive Feature</span>
+            <span>✨</span>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-1.5">
+            <span>Than Sin's Cute Sticker Corner</span>
+            <span class="animate-bounce">🥰</span>
+          </h3>
+          <p class="text-[11px] sm:text-xs text-rose-200/75 font-light">Sticker လေးကို နှိပ်တိုင်း ပုံလေးတွေ တလှည့်စီ ပြောင်းသွားပါမယ် 🤍</p>
+        </div>
+        
+        <!-- Live Sticker Image Changer -->
+        <label class="p-2 sm:px-3 sm:py-2 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 text-rose-200 text-xs sm:text-sm flex items-center gap-1 cursor-pointer active:scale-95 border border-rose-400/30 transition shrink-0" title="Sticker ပုံလဲရန်">
+          <input type="file" id="stickerUploadInput" accept="image/*" class="hidden" onchange="loadCustomSticker(event)">
+          <span>📷 Sticker လဲရန်</span>
+        </label>
+      </div>
+
+      <!-- MAIN INTERACTIVE STICKER STAGE -->
+      <div class="relative py-4 flex flex-col items-center justify-center">
+        
+        <!-- Orbiting Mini Floating Hearts -->
+        <div class="absolute w-40 h-40 sm:w-48 sm:h-48 rounded-full border border-rose-400/20 pointer-events-none flex items-center justify-center">
+          <div class="absolute text-sm sm:text-base text-pink-400 animate-orbit">💖</div>
+          <div class="absolute text-xs sm:text-sm text-rose-300 animate-orbitReverse">🌸</div>
+        </div>
+
+        <!-- Floating Speech Bubble Overlay Anchor -->
+        <div id="speechBubbleAnchor" class="relative z-30 h-10 w-full flex items-center justify-center pointer-events-none"></div>
+
+        <!-- HERO STICKER CONTAINER (Click / Tap to change image) -->
+        <div id="stickerHeroContainer" 
+             onclick="triggerStickerInteraction(event)" 
+             class="relative z-20 w-44 h-44 sm:w-52 sm:h-52 rounded-3xl p-3 sm:p-4 bg-gradient-to-tr from-white/10 via-white/20 to-white/5 backdrop-blur-md border-2 border-rose-400/60 shadow-2xl shadow-rose-950/60 flex items-center justify-center cursor-pointer transition-transform duration-200 hover:scale-105 active:scale-95 group">
+          
+          <div class="absolute inset-0 rounded-3xl ring-4 ring-rose-400/40 animate-ping pointer-events-none"></div>
+
+          <img id="mainStickerImg" 
+               src="sticker.png" 
+               alt="Than Sin Cute Sticker" 
+               class="w-full h-full object-contain drop-shadow-[0_10px_20px_rgba(244,63,94,0.45)] transition-all duration-300 group-hover:scale-110" 
+               onerror="this.src='https://api.iconify.design/fluent-emoji:smiling-face-with-hearts.svg'">
+
+          <div class="absolute -bottom-2.5 px-3.5 py-0.5 rounded-full bg-gradient-to-r from-rose-500 to-pink-500 text-white text-[10px] sm:text-xs font-semibold tracking-wider shadow-md pointer-events-none flex items-center gap-1 animate-pulse">
+            <span>✨ Tap / Click Me!</span>
+          </div>
+        </div>
+
+        <!-- Sticker Subtitle -->
+        <div class="mt-5 text-center max-w-sm space-y-1">
+          <p class="text-xs sm:text-sm text-rose-200 font-medium">
+            "နင့်ရဲ့ ရှက်တတ်တဲ့ ချစ်စရာ Sticker လေး 🙈"
+          </p>
+          <p class="text-[11px] sm:text-xs text-rose-300/75 font-light leading-relaxed">
+            ဖုန်းထဲမှာ အမြဲတမ်း သိမ်းဆည်းထားပြီး ကြည့်မိတိုင်း ပြုံးစိစိ ဖြစ်ရတဲ့ Than Sin ရဲ့ အသည်းကျော် Sticker လေးပါဗျာ 🤍
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================
+         4. 3D POLAROID PHOTO & MEMORY CARDS (4 CARDS)
+         Responsive Grid: 1 col on mobile, 2 cols on Tablet/iPad/PC
+         ======================================================== -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between px-1">
+        <div>
+          <h3 class="text-base sm:text-xl font-bold text-white flex items-center gap-1.5">
+            <span>Than Sin ရဲ့ အမှတ်တရ ပုံရိပ်လွှာများ</span>
+            <span class="text-rose-400">📸</span>
+          </h3>
+          <p class="text-[11px] sm:text-xs text-rose-200/75 font-light">ကတ်လေးတွေကို နှိပ်ပြီး အတွင်းက စာလွှာကို လှန်ဖတ်ကြည့်ပါနော်</p>
+        </div>
+        <span class="text-[10px] sm:text-xs px-2.5 py-0.5 rounded-full bg-rose-500/30 text-rose-200 font-mono">Tap / Click Card</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+
+        <!-- CARD 1: Candid Photo That Couldn't Be Deleted -->
+        <div class="perspective-1000 w-full h-[400px] sm:h-[430px] cursor-pointer" onclick="flipCard('card1')">
+          <div id="card1" class="relative w-full h-full transform-style-3d transition-transform duration-700 rounded-3xl shadow-2xl">
+            
+            <!-- FRONT FACE -->
+            <div class="absolute inset-0 backface-hidden bg-white text-slate-800 rounded-3xl p-4 sm:p-5 flex flex-col justify-between border border-rose-100 shadow-xl">
+              <div class="absolute -top-2.5 left-1/2 -translate-x-1/2 w-20 h-5 bg-rose-200/70 backdrop-blur-sm -rotate-2 rounded-sm border-t border-b border-rose-300/40"></div>
+
+              <div class="relative w-full h-64 sm:h-72 bg-slate-100 rounded-2xl overflow-hidden group">
+                <img id="imgCard1" src="candid.jpg" alt="Than Sin Candid Memory" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80'">
+                
+                <div class="absolute bottom-2.5 right-2.5 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] sm:text-xs text-white flex items-center gap-1">
+                  <span>📸 Candid Memory</span>
+                </div>
+              </div>
+
+              <div class="pt-2 flex items-center justify-between">
+                <div>
+                  <p class="font-bold text-sm sm:text-base text-slate-800">မဖျက်ရက်ခဲ့တဲ့ ပုံရိပ်လေး 🤍</p>
+                  <p class="text-[11px] sm:text-xs text-slate-500 font-light">"Than Sin အရမ်းချောနေလို့ ဘယ်လိုမှ မဖျက်ရက်ခဲ့တာ"</p>
+                </div>
+                <label class="p-2 rounded-xl bg-rose-50 text-rose-600 hover:bg-rose-100 text-xs sm:text-sm flex items-center gap-1" onclick="event.stopPropagation()">
+                  <input type="file" accept="image/*" class="hidden" onchange="loadCustomImage(event, 'imgCard1')">
+                  <span>📷 ပုံလဲရန်</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- BACK FACE (Secret Message) -->
+            <div class="absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-rose-50 via-white to-pink-50 text-slate-800 rounded-3xl p-6 sm:p-7 flex flex-col justify-between border-2 border-rose-200 shadow-xl">
+              <div class="space-y-3">
+                <span class="text-xs uppercase tracking-wider text-rose-500 font-semibold flex items-center gap-1">
+                  <span>💌 Secret Note #1</span>
+                </span>
+                <h4 class="text-base sm:text-lg font-bold text-slate-900">"တကယ်တော့ အဲ့ဒီနေ့က..."</h4>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  နင့်သူငယ်ချင်းက ဓာတ်ပုံကို ဖျက်ခိုင်းခဲ့ပေမဲ့... ဓာတ်ပုံထဲမှာ Than Sin က အရမ်းချစ်ဖို့ကောင်းပြီး လှနေတော့ ငါ ဘယ်လိုမှ မဖျက်ရက်ဘဲ သိမ်းထားမိခဲ့တာ 🙈🤍
+                </p>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  အဲ့ဒီပုံလေးကို ကြည့်မိတိုင်း နင့်အကြောင်း တွေးရင်း ပြုံးပြုံးနေရတုန်းပါပဲ Than Sin...
+                </p>
+              </div>
+              <div class="flex items-center justify-between pt-2 border-t border-rose-200/60">
+                <span class="text-[10px] sm:text-xs text-rose-400 font-mono">From: Min Depar Kyaw 🤍</span>
+                <span class="text-[11px] sm:text-xs text-rose-500 font-medium">ပြန်လှည့်ရန် နှိပ်ပါ ↩</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- CARD 2: Inya Lake & Lotus Flower -->
+        <div class="perspective-1000 w-full h-[400px] sm:h-[430px] cursor-pointer" onclick="flipCard('card2')">
+          <div id="card2" class="relative w-full h-full transform-style-3d transition-transform duration-700 rounded-3xl shadow-2xl">
+            
+            <!-- FRONT FACE -->
+            <div class="absolute inset-0 backface-hidden bg-white text-slate-800 rounded-3xl p-4 sm:p-5 flex flex-col justify-between border border-rose-100 shadow-xl">
+              <div class="absolute -top-2.5 left-1/2 -translate-x-1/2 w-20 h-5 bg-pink-200/70 backdrop-blur-sm rotate-1 rounded-sm border-t border-b border-pink-300/40"></div>
+
+              <div class="relative w-full h-64 sm:h-72 bg-slate-100 rounded-2xl overflow-hidden group">
+                <img id="imgCard2" src="inya.jpg" alt="Inya Lake Lotus Flower" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=700&q=80'">
+                
+                <div class="absolute bottom-2.5 right-2.5 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] sm:text-xs text-white flex items-center gap-1">
+                  <span>🌸 အင်ယားကန်ဘောင်</span>
+                </div>
+              </div>
+
+              <div class="pt-2 flex items-center justify-between">
+                <div>
+                  <p class="font-bold text-sm sm:text-base text-slate-800">အင်ယားက စပယ်ဖြူလေး 🌸</p>
+                  <p class="text-[11px] sm:text-xs text-slate-500 font-light">"ကြာပန်းလေးထက် ကိုင်ထားတဲ့ Than Sin က ပိုလှနေခဲ့တာ"</p>
+                </div>
+                <label class="p-2 rounded-xl bg-rose-50 text-rose-600 hover:bg-rose-100 text-xs sm:text-sm flex items-center gap-1" onclick="event.stopPropagation()">
+                  <input type="file" accept="image/*" class="hidden" onchange="loadCustomImage(event, 'imgCard2')">
+                  <span>📷 ပုံလဲရန်</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- BACK FACE (Secret Message) -->
+            <div class="absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-rose-50 via-white to-pink-50 text-slate-800 rounded-3xl p-6 sm:p-7 flex flex-col justify-between border-2 border-rose-200 shadow-xl">
+              <div class="space-y-3">
+                <span class="text-xs uppercase tracking-wider text-rose-500 font-semibold flex items-center gap-1">
+                  <span>💌 Secret Note #2</span>
+                </span>
+                <h4 class="text-base sm:text-lg font-bold text-slate-900">"ဒါပဲလေ လို့ နင်ပြန်ပြောခဲ့တဲ့ ညနေ..."</h4>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  အညိုရောင် ဝတ်စုံလေးနဲ့ ကြာပန်းလေး ကိုင်ထားတဲ့ နင့်ရဲ့ပုံကို မြင်လိုက်ရတဲ့ အခိုက်အတန့်မှာ လူတွေ ဘယ်လောက်ပဲ ရှိရှိ Than Sin တစ်ယောက်တည်းကိုပဲ မျက်စိထဲ ထင်းနေခဲ့တာ...
+                </p>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  "ဒါပဲလေ" ဆိုပြီး အထာကျကျ စနောက်ဖြေတတ်တဲ့ နင့်ရဲ့ ပုံစံလေးကို ငါ အမြဲတမ်း သဘောကျမိတယ် 🤎
+                </p>
+              </div>
+              <div class="flex items-center justify-between pt-2 border-t border-rose-200/60">
+                <span class="text-[10px] sm:text-xs text-rose-400 font-mono">From: Min Depar Kyaw 🤍</span>
+                <span class="text-[11px] sm:text-xs text-rose-500 font-medium">ပြန်လှည့်ရန် နှိပ်ပါ ↩</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- CARD 3: TikTok Cute Smile & Energetic Vibes -->
+        <div class="perspective-1000 w-full h-[400px] sm:h-[430px] cursor-pointer" onclick="flipCard('card3')">
+          <div id="card3" class="relative w-full h-full transform-style-3d transition-transform duration-700 rounded-3xl shadow-2xl">
+            
+            <!-- FRONT FACE -->
+            <div class="absolute inset-0 backface-hidden bg-white text-slate-800 rounded-3xl p-4 sm:p-5 flex flex-col justify-between border border-rose-100 shadow-xl">
+              <div class="absolute -top-2.5 left-1/2 -translate-x-1/2 w-20 h-5 bg-rose-200/70 backdrop-blur-sm -rotate-1 rounded-sm border-t border-b border-rose-300/40"></div>
+
+              <div class="relative w-full h-64 sm:h-72 bg-rose-50 rounded-2xl overflow-hidden flex items-center justify-center group">
+                <img id="imgCard3" src="tiktok1.jpg" alt="Than Sin TikTok Cute Smile" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=700&q=80'">
+                
+                <div class="absolute bottom-2.5 right-2.5 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] sm:text-xs text-white flex items-center gap-1">
+                  <span>✨ TikTok Cute Smile</span>
+                </div>
+              </div>
+
+              <div class="pt-2 flex items-center justify-between">
+                <div>
+                  <p class="font-bold text-sm sm:text-base text-slate-800">TikTok က အသည်းယားစရာ အပြုံးလေး ✨</p>
+                  <p class="text-[11px] sm:text-xs text-slate-500 font-light">"နင့်ရဲ့ TikTok လေးတွေထဲက အပြုံးလေးတွေက အမောပြေစေတယ်"</p>
+                </div>
+                <label class="p-2 rounded-xl bg-rose-50 text-rose-600 hover:bg-rose-100 text-xs sm:text-sm flex items-center gap-1" onclick="event.stopPropagation()">
+                  <input type="file" accept="image/*" class="hidden" onchange="loadCustomImage(event, 'imgCard3')">
+                  <span>📷 ပုံလဲရန်</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- BACK FACE (Secret Message) -->
+            <div class="absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-rose-50 via-white to-pink-50 text-slate-800 rounded-3xl p-6 sm:p-7 flex flex-col justify-between border-2 border-rose-200 shadow-xl">
+              <div class="space-y-3">
+                <span class="text-xs uppercase tracking-wider text-rose-500 font-semibold flex items-center gap-1">
+                  <span>💌 Secret Note #3</span>
+                </span>
+                <h4 class="text-base sm:text-lg font-bold text-slate-900">"TikTok လေးတွေ ကြည့်ပြီး..."</h4>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  TikTok ထဲမှာ ကပြနေတာလေးတွေ၊ အသည်းယားစရာ အပြုံးလေးတွေနဲ့ လုပ်ပြနေတာလေးတွေကို ခဏခဏ ပြန်ကြည့်ပြီး တစ်ယောက်တည်း ပြုံးနေရတာ...
+                </p>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  နင့်ရဲ့ ပျော်ရွှင်တက်ကြွတဲ့ vibe လေးက ငါ့တစ်နေ့တာရဲ့ အကောင်းဆုံး စိတ်ခွန်အားပါပဲ Than Sin 🤍
+                </p>
+              </div>
+              <div class="flex items-center justify-between pt-2 border-t border-rose-200/60">
+                <span class="text-[10px] sm:text-xs text-rose-400 font-mono">From: Min Depar Kyaw 🤍</span>
+                <span class="text-[11px] sm:text-xs text-rose-500 font-medium">ပြန်လှည့်ရန် နှိပ်ပါ ↩</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- CARD 4: REPLACED WITH "ခိုးရိုက်ထားတဲ့ ပုံလေး 🙈📸" -->
+        <div class="perspective-1000 w-full h-[400px] sm:h-[430px] cursor-pointer" onclick="flipCard('card4')">
+          <div id="card4" class="relative w-full h-full transform-style-3d transition-transform duration-700 rounded-3xl shadow-2xl">
+            
+            <!-- FRONT FACE -->
+            <div class="absolute inset-0 backface-hidden bg-white text-slate-800 rounded-3xl p-4 sm:p-5 flex flex-col justify-between border border-rose-100 shadow-xl">
+              <div class="absolute -top-2.5 left-1/2 -translate-x-1/2 w-20 h-5 bg-pink-200/70 backdrop-blur-sm rotate-2 rounded-sm border-t border-b border-pink-300/40"></div>
+
+              <div class="relative w-full h-64 sm:h-72 bg-slate-100 rounded-2xl overflow-hidden group">
+                <img id="imgCard4" src="candid_photo.jpg" alt="ခိုးရိုက်ထားတဲ့ ပုံလေး" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=700&q=80'">
+                
+                <div class="absolute bottom-2.5 right-2.5 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] sm:text-xs text-white flex items-center gap-1">
+                  <span>🙈 Candid Shot</span>
+                </div>
+              </div>
+
+              <div class="pt-2 flex items-center justify-between">
+                <div>
+                  <p class="font-bold text-sm sm:text-base text-slate-800">ခိုးရိုက်ထားတဲ့ ပုံလေး 🙈📸</p>
+                  <p class="text-[11px] sm:text-xs text-slate-500 font-light">"နင် သတိမထားမိတဲ့ အချိန်လေးမှာ ခိုးရိုက်ထားတာလေး"</p>
+                </div>
+                <label class="p-2 rounded-xl bg-rose-50 text-rose-600 hover:bg-rose-100 text-xs sm:text-sm flex items-center gap-1" onclick="event.stopPropagation()">
+                  <input type="file" accept="image/*" class="hidden" onchange="loadCustomImage(event, 'imgCard4')">
+                  <span>📷 ပုံလဲရန်</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- BACK FACE (Secret Message) -->
+            <div class="absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-rose-50 via-white to-pink-50 text-slate-800 rounded-3xl p-6 sm:p-7 flex flex-col justify-between border-2 border-rose-200 shadow-xl">
+              <div class="space-y-3">
+                <span class="text-xs uppercase tracking-wider text-rose-500 font-semibold flex items-center gap-1">
+                  <span>💌 Secret Note #4</span>
+                </span>
+                <h4 class="text-base sm:text-lg font-bold text-slate-900">"နင် သတိမထားမိခင် ခိုးရိုက်ထားတာ 🤫"</h4>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  ကင်မရာကို မကြည့်ဘဲ နင် သဘာဝအတိုင်း နေနေတာလေးကို ငါ့ဖုန်းထဲ အမိအရ သိမ်းထားခဲ့တာလေး...
+                </p>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  ဘာ filter မှ မလိုဘဲ သဘာဝအတိုင်း အသည်းယားစရာကောင်းနေတဲ့ နင့်ရဲ့ ပုံစံလေးကို ငါ့မျက်လုံးထဲမှာရော ဖုန်းထဲမှာပါ အမြတ်တနိုး သိမ်းဆည်းထားချင်လို့ပါဗျာ 🙈🤍
+                </p>
+              </div>
+              <div class="flex items-center justify-between pt-2 border-t border-rose-200/60">
+                <span class="text-[10px] sm:text-xs text-rose-400 font-mono">From: Min Depar Kyaw 🤍</span>
+                <span class="text-[11px] sm:text-xs text-rose-500 font-medium">ပြန်လှည့်ရန် နှိပ်ပါ ↩</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         5. ROMANTIC CONFESSION LETTER & RUNAWAY PROPOSAL BUTTONS
+         ======================================================== -->
+    <section class="glass-panel-dark rounded-3xl p-6 sm:p-9 shadow-2xl relative overflow-hidden border border-rose-400/40 max-w-2xl mx-auto">
+      
+      <!-- Ambient Glow and Heart Watermark -->
+      <div class="absolute -right-10 -bottom-10 w-44 h-44 opacity-10 pointer-events-none text-rose-300">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </div>
+
+      <!-- Letter Header -->
+      <div class="flex items-center gap-3 mb-5 pb-3 border-b border-rose-500/30">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-rose-500 to-pink-500 text-white flex items-center justify-center text-base shadow-md">
+          💌
+        </div>
+        <div>
+          <h3 class="text-base sm:text-lg font-bold text-white">Than Sin ဆီသို့ ဖွင့်ဟဝန်ခံချက် 🌸</h3>
+          <p class="text-[10px] sm:text-xs text-rose-300 font-light font-mono">From: Min Depar Kyaw</p>
+        </div>
+      </div>
+
+      <!-- Letter Body -->
+      <div class="space-y-4 text-xs sm:text-sm text-rose-100/90 leading-relaxed font-light">
+        <p>
+          Than Sin... နင်နဲ့ စကားစပြောဖြစ်တဲ့ နေ့ကတည်းက နင့်ရဲ့ ချစ်စရာ အပြုံးတွေ၊ ရှက်တတ်တဲ့ အမူအရာလေးတွေနဲ့ စနောက်တတ်တဲ့ စကားလုံးလေးတွေကို ငါ သဘောကျမိခဲ့တာပါ...
+        </p>
+        <p>
+          "ငါ့အတွက်ဆိုပြီး သီးသန့်ပေးတဲ့ အရာအားလုံးကို ငါသဘောကျတယ်" ဆိုတဲ့ နင့်စကားလေးကို ငါ ရင်ထဲ သေချာ မှတ်ထားခဲ့ပါတယ်... ဆိုင်မှာ ဝယ်လို့ရတဲ့ ဘယ်ပစ္စည်းထက်မဆို Than Sin တစ်ယောက်တည်းအတွက်သာ သီးသန့်ဖြစ်မယ့် ဒီလက်ဆောင်လေးကို အချိန်ယူ ဖန်တီးပေးချင်ခဲ့တာ 🤍
+        </p>
+        <p class="p-3.5 sm:p-4 rounded-2xl bg-rose-500/10 border border-rose-400/30 text-rose-200">
+          "စပယ်ဖြူလေးနဲ့တွေ့တဲ့နောက်" သီချင်းလေး နားထောင်မိတိုင်း နင့်အကြောင်းပဲ မြင်ယောင်နေရသလို... Than Sin ရဲ့ ရှေ့ဆက်မယ့် နေ့ရက်တိုင်းမှာ အနားကနေ အမြဲတမ်း စောင့်ရှောက်ပေးချင်တယ်ဗျာ 🌸
+        </p>
+        <p class="font-medium text-white text-center pt-2 text-sm sm:text-base">
+          "နင့်ဘေးနားမှာ အမြဲရှိပြီး လက်တွဲခွင့်၊ ဂရုစိုက်ခွင့် ပေးမလား Than Sin 🤍"
+        </p>
+      </div>
+
+      <!-- INTERACTIVE PROPOSAL BUTTONS CONTAINER -->
+      <div id="proposalActionArea" class="mt-7 pt-4 border-t border-rose-500/30 relative min-h-[90px] flex items-center justify-center gap-3 sm:gap-4">
+        
+        <!-- YES BUTTON -->
+        <button id="yesBtn" onclick="handleAcceptProposal()" class="py-3 sm:py-3.5 px-6 sm:px-8 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 text-white font-bold text-xs sm:text-sm shadow-lg shadow-rose-900/60 hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2">
+          <span>လက်ခံတယ် 🤍 (Yes)</span>
+          <span class="animate-bounce">💍</span>
+        </button>
+
+        <!-- RUNAWAY "MAYBE" BUTTON -->
+        <button id="maybeBtn" onmouseover="dodgeMaybeBtn()" ontouchstart="dodgeMaybeBtn(event)" onclick="handleMaybeProposal()" class="py-3 sm:py-3.5 px-5 sm:px-6 rounded-2xl bg-white/10 text-rose-200 font-medium text-xs sm:text-sm border border-rose-400/30 transition-all duration-200 flex items-center justify-center gap-1.5 whitespace-nowrap">
+          <span>စဉ်းစားဦးမယ် 😜</span>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- FOOTER SIGNATURE -->
+    <footer class="text-center pt-3 text-[11px] sm:text-xs text-rose-300/60 font-light">
+      <p>Made with sincere love for Than Sin by Min Depar Kyaw 🌸🤍</p>
+    </footer>
+
+  </main>
+
+  <!-- ========================================================
+       6. MODALS & POPUPS
+       ======================================================== -->
+
+  <!-- OFFICIAL LOVE CERTIFICATE MODAL (Triggered on YES) -->
+  <div id="acceptModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md px-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="glass-panel text-slate-800 rounded-3xl p-6 sm:p-8 text-center max-w-sm sm:max-w-md w-full shadow-2xl border-2 border-rose-300 transform scale-90 transition-transform duration-300 relative" id="acceptBox">
+      
+      <!-- Certificate Header Banner -->
+      <div class="inline-block px-3.5 py-1 rounded-full bg-rose-500/10 text-rose-600 font-mono text-[10px] sm:text-xs uppercase tracking-wider mb-2.5 border border-rose-300">
+        Official Certificate of Love 🌸
+      </div>
+
+      <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-tr from-rose-500 to-pink-500 text-white flex items-center justify-center mx-auto mb-3 text-3xl sm:text-4xl shadow-lg shadow-rose-400/50 animate-heartBeat">
+        💖
+      </div>
+
+      <h3 class="text-lg sm:text-2xl font-bold text-slate-900 mb-1">
+        Than Sin က လက်ခံလိုက်ပါပြီ 🤍
+      </h3>
+      <p class="text-xs sm:text-sm text-rose-500 font-semibold mb-3">Partner: Min Depar Kyaw & Than Sin</p>
+
+      <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5 font-light">
+        ဒီနေ့ကစပြီး Than Sin ရဲ့ နေ့ရက်တိုင်းကို ကမ္ဘာပေါ်မှာ အပျော်ဆုံးနဲ့ အချစ်ခံရဆုံး ဖြစ်အောင် ငါ အမြဲတမ်း စောင့်ရှောက်ထားပါ့မယ် 🌸✨
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="space-y-2">
+        <button onclick="copyTelegramConfessionText()" class="w-full py-2.5 sm:py-3 rounded-xl bg-gradient-to-r from-rose-500 to-pink-500 text-white text-xs sm:text-sm font-semibold shadow-md hover:brightness-105 active:scale-95 transition flex items-center justify-center gap-1.5">
+          <span>Telegram သို့ ပို့ရန် ကူးယူပါ 📋</span>
+        </button>
+        <button onclick="closeAcceptModal()" class="w-full py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs sm:text-sm font-medium transition">
+          ပိတ်မည် ✨
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PLAYFUL TOAST NOTIFICATION FOR RUNAWAY BUTTON -->
+  <div id="toastNotification" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-full bg-rose-900/90 text-white text-xs sm:text-sm border border-rose-400/40 shadow-xl opacity-0 pointer-events-none transition-all duration-300 whitespace-nowrap">
+    <span id="toastText">မိအောင်ဖမ်းလေ Than Sin ရေ 😜</span>
+  </div>
+
+  <!-- ========================================================
+       JAVASCRIPT LOGIC
+       ======================================================== -->
+  <script src="script.js"></script>
+</body>
+</html>
